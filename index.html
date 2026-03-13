@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin Racquet Club — Premier Padel & Pickleball in Austin, TX</title>
+<meta name="description" content="Austin Racquet Club — Austin's premier luxury padel and pickleball destination. 18 world-class courts, spa & wellness, fitness, dining, and more. Coming Soon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #1a2744;
+  --navy-deep: #0f1a2e;
+  --teal: #1e3a5f;
+  --cream: #f5f0e8;
+  --cream-light: #faf8f4;
+  --gold: #c9a959;
+  --gold-light: #d4b96a;
+  --gold-dark: #b8943f;
+  --white: #ffffff;
+  --text-dark: #1a2744;
+  --text-light: #f5f0e8;
+  --text-muted: #8a9ab5;
+  --overlay: rgba(15, 26, 46, 0.7);
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-dark);
+  background: var(--cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; }
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== UTILITY ===== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section-pad { padding: 100px 0; }
+.text-center { text-align: center; }
+.gold-line {
+  width: 60px; height: 2px; background: var(--gold);
+  margin: 20px auto 0; display: block;
+}
+.section-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.section-desc {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #5a6a7a;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 20px 0;
+  transition: all 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(26, 39, 68, 0.97);
+  backdrop-filter: blur(20px);
+  padding: 12px 0;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--cream); letter-spacing: 1px;
+}
+.nav-logo img { height: 42px; width: auto; border-radius: 4px; }
+.nav.scrolled .nav-logo img { height: 36px; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  color: rgba(245, 240, 232, 0.8);
+  font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 1px; background: var(--gold);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+
+/* Mobile menu */
+.nav-toggle {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.nav-toggle span {
+  width: 24px; height: 2px; background: var(--cream);
+  transition: all 0.3s;
+}
+.nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+    background: var(--navy-deep);
+    flex-direction: column; padding: 100px 40px 40px;
+    gap: 24px;
+    transition: right 0.4s ease;
+  }
+  .nav-links.open { right: 0; }
+  .nav-links a { font-size: 1rem; }
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--navy-deep);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1920&q=80') center/cover;
+  opacity: 0.3;
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(15,26,46,0.9) 0%, rgba(30,58,95,0.7) 50%, rgba(15,26,46,0.85) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center; padding: 40px 24px;
+}
+.hero-logo {
+  width: 140px; height: auto; margin: 0 auto 40px;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: fadeUp 1s ease 0.2s both;
+}
+.hero-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 6px; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  animation: fadeUp 1s ease 0.4s both;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  animation: fadeUp 1s ease 0.6s both;
+}
+.hero h1 em {
+  font-style: italic; color: var(--gold);
+}
+.hero-desc {
+  font-size: 1.15rem; line-height: 1.7;
+  color: rgba(245, 240, 232, 0.7);
+  max-width: 560px; margin: 0 auto 40px;
+  animation: fadeUp 1s ease 0.8s both;
+}
+.hero-cta {
+  display: inline-flex; gap: 16px;
+  flex-wrap: wrap; justify-content: center;
+  animation: fadeUp 1s ease 1s both;
+}
+.btn {
+  display: inline-block;
+  padding: 16px 40px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy);
+  border: 2px solid var(--gold);
+}
+.btn-gold:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 169, 89, 0.3);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--cream);
+  border: 2px solid rgba(245, 240, 232, 0.3);
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+}
+.hero-scroll span {
+  display: block; width: 24px; height: 38px;
+  border: 2px solid rgba(245, 240, 232, 0.3);
+  border-radius: 12px;
+  position: relative;
+}
+.hero-scroll span::after {
+  content: ''; position: absolute;
+  top: 6px; left: 50%; transform: translateX(-50%);
+  width: 3px; height: 8px;
+  background: var(--gold);
+  border-radius: 2px;
+  animation: scrollDot 2s infinite;
+}
+
+/* ===== ABOUT ===== */
+.about { background: var(--cream-light); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.about-image {
+  position: relative; border-radius: 4px; overflow: hidden;
+}
+.about-image img {
+  width: 100%; height: 500px; object-fit: cover;
+  border-radius: 4px;
+}
+.about-image::after {
+  content: ''; position: absolute; inset: 0;
+  border: 1px solid var(--gold); border-radius: 4px;
+  transform: translate(16px, 16px);
+  z-index: -1;
+}
+.about-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 40px;
+}
+.stat-item { text-align: center; }
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.75rem; letter-spacing: 2px;
+  text-transform: uppercase; color: #7a8a9a;
+  margin-top: 4px;
+}
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-image img { height: 350px; }
+  .about-image::after { display: none; }
+}
+
+/* ===== FACILITIES ===== */
+.facilities { background: var(--navy); color: var(--cream); }
+.facilities .section-desc { color: var(--text-muted); }
+.facilities-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 60px;
+}
+.facility-card {
+  position: relative; border-radius: 4px; overflow: hidden;
+  height: 420px;
+  cursor: pointer;
+}
+.facility-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.facility-card:hover img { transform: scale(1.08); }
+.facility-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(15,26,46,0.95) 0%, transparent 60%);
+  display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 32px;
+}
+.facility-card h3 {
+  font-size: 1.5rem; margin-bottom: 8px;
+}
+.facility-card p {
+  font-size: 0.9rem; color: var(--text-muted);
+  line-height: 1.5;
+}
+.facility-badge {
+  position: absolute; top: 20px; right: 20px;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 6px 16px;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  border-radius: 2px;
+}
+@media (max-width: 900px) {
+  .facilities-grid { grid-template-columns: 1fr; }
+  .facility-card { height: 320px; }
+}
+
+/* ===== AMENITIES ===== */
+.amenities { background: var(--cream-light); }
+.amenities-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 40px; margin-top: 60px;
+}
+.amenity-card {
+  padding: 40px 32px;
+  background: var(--white);
+  border-radius: 4px;
+  border: 1px solid rgba(26, 39, 68, 0.06);
+  transition: all 0.4s ease;
+  text-align: center;
+}
+.amenity-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(26, 39, 68, 0.08);
+  border-color: var(--gold);
+}
+.amenity-icon {
+  width: 56px; height: 56px; margin: 0 auto 24px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(201, 169, 89, 0.1);
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+.amenity-card h3 {
+  font-size: 1.2rem; margin-bottom: 12px;
+}
+.amenity-card p {
+  font-size: 0.9rem; color: #6a7a8a;
+  line-height: 1.65;
+}
+@media (max-width: 900px) {
+  .amenities-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .amenities-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== GALLERY ===== */
+.gallery { background: var(--navy-deep); color: var(--cream); }
+.gallery .section-desc { color: var(--text-muted); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 60px;
+}
+.gallery-item {
+  position: relative;
+  border-radius: 4px; overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+}
+.gallery-item:nth-child(1),
+.gallery-item:nth-child(6) {
+  grid-column: span 2;
+}
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(15, 26, 46, 0.2);
+  transition: opacity 0.3s;
+}
+.gallery-item:hover::after { opacity: 0; }
+.gallery-item .gallery-zoom {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 48px; height: 48px;
+  background: rgba(201, 169, 89, 0.9);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+.gallery-item:hover .gallery-zoom { transform: translate(-50%, -50%) scale(1); }
+.gallery-zoom svg { width: 20px; height: 20px; fill: var(--navy); }
+
+@media (max-width: 768px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(6) { grid-column: span 2; }
+}
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(6) { grid-column: span 1; }
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(10, 16, 30, 0.96);
+  display: none; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.lightbox.active { display: flex; opacity: 1; }
+.lightbox img {
+  max-width: 90vw; max-height: 85vh;
+  object-fit: contain; border-radius: 4px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute; top: 24px; right: 32px;
+  width: 48px; height: 48px;
+  background: none; border: none; cursor: pointer;
+  color: var(--cream); font-size: 2rem;
+  transition: color 0.3s;
+}
+.lightbox-close:hover { color: var(--gold); }
+.lightbox-nav {
+  position: absolute; top: 50%;
+  transform: translateY(-50%);
+  background: rgba(201,169,89,0.15);
+  border: 1px solid rgba(201,169,89,0.3);
+  color: var(--cream);
+  width: 52px; height: 52px;
+  border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+.lightbox-nav:hover {
+  background: var(--gold); color: var(--navy);
+  border-color: var(--gold);
+}
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+.lightbox-counter {
+  position: absolute; bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-muted);
+  font-size: 0.85rem; letter-spacing: 2px;
+}
+
+/* ===== CTA / COMING SOON ===== */
+.cta-section {
+  position: relative;
+  padding: 120px 0;
+  background: var(--navy);
+  overflow: hidden;
+}
+.cta-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1920&q=80') center/cover;
+  opacity: 0.15;
+}
+.cta-content {
+  position: relative; z-index: 2;
+  text-align: center; color: var(--cream);
+}
+.cta-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  background: rgba(201, 169, 89, 0.15);
+  border: 1px solid rgba(201, 169, 89, 0.3);
+  border-radius: 100px;
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+.cta-content h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+}
+.cta-content h2 em { font-style: italic; color: var(--gold); }
+.cta-content p {
+  font-size: 1.1rem; color: var(--text-muted);
+  max-width: 580px; margin: 0 auto 40px;
+  line-height: 1.7;
+}
+.cta-features {
+  display: flex; gap: 48px;
+  justify-content: center; flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.cta-feature {
+  text-align: center;
+}
+.cta-feature-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 700;
+  color: var(--gold);
+}
+.cta-feature-label {
+  font-size: 0.75rem; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ===== CONTACT ===== */
+.contact { background: var(--cream-light); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; margin-top: 60px;
+}
+.contact-info h3 {
+  font-size: 1.5rem; margin-bottom: 20px;
+}
+.contact-info p {
+  font-size: 1rem; color: #5a6a7a;
+  line-height: 1.75; margin-bottom: 32px;
+}
+.contact-detail {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 20px;
+}
+.contact-detail-icon {
+  width: 44px; height: 44px;
+  background: rgba(201, 169, 89, 0.1);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.contact-detail-icon svg { width: 18px; height: 18px; fill: var(--gold); }
+.contact-detail-text { font-size: 0.95rem; color: #5a6a7a; }
+.contact-detail-text strong { display: block; color: var(--navy); font-weight: 600; }
+.contact-form {
+  background: var(--white);
+  padding: 48px;
+  border-radius: 4px;
+  border: 1px solid rgba(26, 39, 68, 0.06);
+}
+.form-group { margin-bottom: 24px; }
+.form-group label {
+  display: block; margin-bottom: 8px;
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--navy);
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%; padding: 14px 18px;
+  background: var(--cream-light);
+  border: 1px solid rgba(26, 39, 68, 0.1);
+  border-radius: 2px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--navy);
+  transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.form-group textarea { height: 120px; resize: vertical; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form { padding: 32px 24px; }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--navy-deep);
+  color: rgba(245, 240, 232, 0.5);
+  padding: 60px 0 32px;
+}
+.footer-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(245, 240, 232, 0.08);
+  flex-wrap: wrap; gap: 24px;
+}
+.footer-logo {
+  display: flex; align-items: center; gap: 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--cream);
+}
+.footer-logo img { height: 36px; border-radius: 4px; }
+.footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+.footer-links a {
+  font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 32px; flex-wrap: wrap; gap: 12px;
+  font-size: 0.82rem;
+}
+.footer-powered {
+  display: flex; align-items: center; gap: 6px;
+}
+.footer-powered img {
+  height: 14px;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+  position: relative;
+  top: -1px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-12px); }
+  60% { transform: translateX(-50%) translateY(-6px); }
+}
+@keyframes scrollDot {
+  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+}
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ===== ARCHITECT CREDIT ===== */
+.architect-credit {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <img src="assets/logo.jpg" alt="Austin Racquet Club">
+      <span>ARC</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#facilities" onclick="closeMenu()">Facilities</a></li>
+      <li><a href="#amenities" onclick="closeMenu()">Amenities</a></li>
+      <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
+      <li><a href="#invest" onclick="closeMenu()">Invest</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <img src="assets/logo.jpg" alt="Austin Racquet Club" class="hero-logo">
+    <p class="hero-tagline">Austin, Texas</p>
+    <h1>Austin<br>Racquet <em>Club</em></h1>
+    <p class="hero-desc">Austin's premier destination for padel and pickleball. 18 world-class courts, luxury wellness, and an unmatched member experience.</p>
+    <div class="hero-cta">
+      <a href="#invest" class="btn btn-gold">Investment Inquiry</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <a href="#about" class="hero-scroll"><span></span></a>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about section-pad" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="assets/arc_page-01.png" alt="Austin Racquet Club Vision">
+      </div>
+      <div class="reveal reveal-delay-2">
+        <p class="section-subtitle">Our Vision</p>
+        <h2 class="section-title">Where Sport Meets<br>Sophistication</h2>
+        <p class="section-desc" style="margin:0;margin-bottom:20px;">Austin Racquet Club is a world-class racquet sports and wellness destination designed for those who expect the extraordinary. Combining the explosive growth of padel and pickleball with luxury amenities, ARC redefines what a modern athletic club can be.</p>
+        <p class="section-desc" style="margin:0;">Designed by acclaimed architect José Luis Hernández Bañuelos, every detail — from our glass-enclosed courts to our spa with living green walls — reflects a commitment to excellence, community, and well-being.</p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-number">18</div>
+            <div class="stat-label">Courts</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Stories</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Potential</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FACILITIES ===== -->
+<section class="facilities section-pad" id="facilities">
+  <div class="container text-center">
+    <p class="section-subtitle reveal">World-Class Courts</p>
+    <h2 class="section-title reveal reveal-delay-1">Engineered for<br>Peak Performance</h2>
+    <p class="section-desc reveal reveal-delay-2">18 meticulously designed courts — 9 padel and 9 pickleball — featuring glass enclosures, tournament-grade surfaces, and cutting-edge lighting in a stunning two-story facility.</p>
+    <div class="facilities-grid">
+      <div class="facility-card reveal reveal-delay-1">
+        <img src="assets/arc_page-02.png" alt="Padel Courts">
+        <div class="facility-overlay">
+          <h3>Padel Courts</h3>
+          <p>9 glass-enclosed courts with premium blue surfaces and professional lighting</p>
+        </div>
+        <div class="facility-badge">9 Courts</div>
+      </div>
+      <div class="facility-card reveal reveal-delay-2">
+        <img src="assets/arc_page-03.png" alt="Pickleball Courts">
+        <div class="facility-overlay">
+          <h3>Pickleball Courts</h3>
+          <p>9 state-of-the-art courts designed for competitive and recreational play</p>
+        </div>
+        <div class="facility-badge">9 Courts</div>
+      </div>
+      <div class="facility-card reveal reveal-delay-3">
+        <img src="assets/arc_page-04.png" alt="Tournament Viewing">
+        <div class="facility-overlay">
+          <h3>Viewing Areas</h3>
+          <p>Two-story vantage points for tournaments and spectator experiences</p>
+        </div>
+        <div class="facility-badge">2 Levels</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AMENITIES ===== -->
+<section class="amenities section-pad" id="amenities">
+  <div class="container text-center">
+    <p class="section-subtitle reveal">Beyond the Court</p>
+    <h2 class="section-title reveal reveal-delay-1">A Complete<br>Lifestyle Experience</h2>
+    <p class="section-desc reveal reveal-delay-2">From world-class wellness to curated dining, every amenity is designed to elevate your day — whether you're here to compete, recover, or connect.</p>
+    <div class="amenities-grid">
+      <div class="amenity-card reveal reveal-delay-1">
+        <div class="amenity-icon">🧘</div>
+        <h3>Fitness & Classes</h3>
+        <p>Yoga, Pilates, HIIT, and personalized training programs in beautifully designed studios.</p>
+      </div>
+      <div class="amenity-card reveal reveal-delay-2">
+        <div class="amenity-icon">🍃</div>
+        <h3>Spa & Wellness</h3>
+        <p>Treatment rooms, meditation lounge with water feature, pool and spa with living green wall.</p>
+      </div>
+      <div class="amenity-card reveal reveal-delay-3">
+        <div class="amenity-icon">🍽️</div>
+        <h3>Food & Beverage</h3>
+        <p>Curated healthy dining options — from post-match smoothies to nutritious full meals.</p>
+      </div>
+      <div class="amenity-card reveal reveal-delay-4">
+        <div class="amenity-icon">👶</div>
+        <h3>Kids Club</h3>
+        <p>Professional nannies and engaging activities so parents can play with peace of mind.</p>
+      </div>
+      <div class="amenity-card reveal reveal-delay-5">
+        <div class="amenity-icon">💻</div>
+        <h3>Co-Working Space</h3>
+        <p>Modern workspaces with connectivity for members who blend productivity with play.</p>
+      </div>
+      <div class="amenity-card reveal">
+        <div class="amenity-icon">💧</div>
+        <h3>Luxury Locker Rooms</h3>
+        <p>Premium facilities with plunge pools, rainfall showers, and spa-grade amenities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery section-pad" id="gallery">
+  <div class="container text-center">
+    <p class="section-subtitle reveal">Architectural Vision</p>
+    <h2 class="section-title reveal reveal-delay-1">Designed by<br>José Luis Hernández <em style="font-style:italic;color:var(--gold)">Bañuelos</em></h2>
+    <p class="section-desc reveal reveal-delay-2">Explore the renderings that bring Austin Racquet Club to life — a harmonious blend of modern architecture, natural materials, and world-class sporting design.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal" data-index="0">
+        <img src="assets/arc_page-01.png" alt="ARC Rendering 1" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-index="1">
+        <img src="assets/arc_page-02.png" alt="ARC Rendering 2" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-index="2">
+        <img src="assets/arc_page-03.png" alt="ARC Rendering 3" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-index="3">
+        <img src="assets/arc_page-04.png" alt="ARC Rendering 4" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gallery-item reveal" data-index="4">
+        <img src="assets/arc_page-05.png" alt="ARC Rendering 5" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-index="5">
+        <img src="assets/arc_page-06.png" alt="ARC Rendering 6" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-index="6">
+        <img src="assets/arc_page-07.png" alt="ARC Rendering 7" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-index="7">
+        <img src="assets/arc_page-08.png" alt="ARC Rendering 8" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gallery-item reveal" data-index="8">
+        <img src="assets/arc_page-09.png" alt="ARC Rendering 9" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-index="9">
+        <img src="assets/arc_page-10.png" alt="ARC Rendering 10" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-index="10">
+        <img src="assets/arc_page-11.png" alt="ARC Rendering 11" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-index="11">
+        <img src="assets/arc_page-12.png" alt="ARC Rendering 12" loading="lazy">
+        <div class="gallery-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+  <img src="" alt="Gallery Image" id="lightboxImg">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<!-- ===== COMING SOON / INVEST ===== -->
+<section class="cta-section" id="invest">
+  <div class="cta-bg"></div>
+  <div class="container">
+    <div class="cta-content">
+      <div class="cta-badge reveal">Now Raising Capital</div>
+      <h2 class="reveal reveal-delay-1">Be Part of Austin's<br>Racquet Sports <em>Revolution</em></h2>
+      <p class="reveal reveal-delay-2">Austin Racquet Club represents a rare opportunity to invest in the fastest-growing racquet sports market in the country. Join us in building the premier padel and pickleball destination in Texas.</p>
+      <div class="cta-features reveal reveal-delay-3">
+        <div class="cta-feature">
+          <div class="cta-feature-number">18</div>
+          <div class="cta-feature-label">World-Class Courts</div>
+        </div>
+        <div class="cta-feature">
+          <div class="cta-feature-number">50K+</div>
+          <div class="cta-feature-label">Sq Ft Facility</div>
+        </div>
+        <div class="cta-feature">
+          <div class="cta-feature-number">#1</div>
+          <div class="cta-feature-label">Market in Texas</div>
+        </div>
+      </div>
+      <a href="#contact" class="btn btn-gold reveal reveal-delay-4">Request Investment Details</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact section-pad" id="contact">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:20px;">
+      <p class="section-subtitle reveal">Get In Touch</p>
+      <h2 class="section-title reveal reveal-delay-1">Let's Build Something<br>Extraordinary</h2>
+      <span class="gold-line reveal reveal-delay-2"></span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>We'd Love to Hear From You</h3>
+        <p>Whether you're an investor, a future member, or simply curious about what we're building — we're here. Reach out and let's start a conversation.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <strong>Location</strong>
+            Austin, Texas
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <strong>Email</strong>
+            info@austinracquet.club
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <strong>Website</strong>
+            austinracquet.club
+          </div>
+        </div>
+        <p class="architect-credit">Architecture by José Luis Hernández Bañuelos</p>
+      </div>
+      <form class="contact-form reveal reveal-delay-2" action="https://formspree.io/f/xpznqkdl" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="interest">Interest</label>
+          <select id="interest" name="interest">
+            <option value="">Select your interest</option>
+            <option value="investment">Investment Opportunity</option>
+            <option value="membership">Future Membership</option>
+            <option value="partnership">Business Partnership</option>
+            <option value="general">General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your interest in Austin Racquet Club..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%;text-align:center;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="assets/logo.jpg" alt="ARC">
+        <span>Austin Racquet Club</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Austin Racquet Club. All rights reserved.</span>
+      <span class="footer-powered">Powered by swats.ai 🤖</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+function closeMenu() {
+  navToggle.classList.remove('active');
+  navLinks.classList.remove('open');
+}
+
+// Sticky nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Scroll reveal
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Gallery Lightbox
+const galleryImages = [
+  'assets/arc_page-01.png','assets/arc_page-02.png','assets/arc_page-03.png',
+  'assets/arc_page-04.png','assets/arc_page-05.png','assets/arc_page-06.png',
+  'assets/arc_page-07.png','assets/arc_page-08.png','assets/arc_page-09.png',
+  'assets/arc_page-10.png','assets/arc_page-11.png','assets/arc_page-12.png'
+];
+let currentIndex = 0;
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCounter = document.getElementById('lightboxCounter');
+
+function openLightbox(index) {
+  currentIndex = index;
+  updateLightbox();
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+function updateLightbox() {
+  lightboxImg.src = galleryImages[currentIndex];
+  lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
+}
+
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => openLightbox(parseInt(item.dataset.index)));
+});
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+document.getElementById('lightboxPrev').addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  updateLightbox();
+});
+document.getElementById('lightboxNext').addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  updateLightbox();
+});
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => {
+  if (!lightbox.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length; updateLightbox(); }
+  if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % galleryImages.length; updateLightbox(); }
+});
+</script>
+</body>
+</html>
